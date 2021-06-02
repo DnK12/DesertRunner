@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Danger
   - Coin
+  - Destroyer
   layers:
   - Default
   - TransparentFX

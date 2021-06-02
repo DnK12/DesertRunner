@@ -10,12 +10,27 @@ public class PlatformController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        WorldController.instanse.OnPlatformMovement += TryDelAndAddPlatform;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void TryDelAndAddPlatform()
+    {
+        if(transform.position.z < WorldController.instanse.minZ)
+        {
+            WorldController.instanse.worldBuilder.CreatePlatform();
+            Destroy(gameObject);
+        }
+        
+    }
+
+    private void OnDestroy()
+    {
+        WorldController.instanse.OnPlatformMovement -= TryDelAndAddPlatform;
     }
 }

@@ -54,7 +54,7 @@ public class CController : MonoBehaviour
     
     IEnumerator  Lose()
     {        
-        levelMove.levelSpeed = 0f;
+        WorldController.levelSpeed = 0f;
         anima.SetTrigger("Bump");
         StartCoroutine(Bump());
         letMove = false;
